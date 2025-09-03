@@ -3,49 +3,51 @@
 
 <head>
   <meta charset='utf-8'>
-  <meta name="description" content="Quelques exemples pour expliquer les fondamentaux d'HTML.">
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href="../favicon.ico" rel="icon" type="image/ico">
+  <link href="../favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+  <link href="../favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+  <link href="../favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+  <link href="../main.css" media='screen' rel='stylesheet' type='text/css'>
+
   <title>Exemples HTML - Fondamentaux Web</title>
-  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
-  <link rel="icon" type="image/ico" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <meta name="description" content="Quelques exemples pour expliquer les fondamentaux d'HTML.">
 </head>
-<!--
-  <body> contient le contenu visible du document HTML.
--->
 
 <body>
-  <main>
-    <h1>Exemples HTML</h1>
-    <!--
-      Cet élément <ol> porte l'attribut class="table_of_contents".
-      Cette classe CSS est définie dans le fichier main.css.
-      Ici, il permet
-       -->
-    <ol class="table_of_contents">
-      <li> <a href="/1-outils">Outils</a> </li>
-      <li> <a href="/2-html">HTML</a>
-        <ol>
-          <li><a href="/2-html/01-texte-seul">Texte seul</a></li>
-          <li><a href="/2-html/02-minimum">Structure HTML minimum</a></li>
-          <li><a href="/2-html/03-commentaires">Commentaires HTML</a></li>
-        </ol>
-      </li>
-      <li> <a href="/3-css">CSS</a> </li>
-    </ol>
-  </main>
+<main>
+  <h1>Exemples HTML</h1>
+  <!--
+    Cet élément <ol> porte l'attribut class="table_of_contents".
+    Cette classe CSS est définie dans le fichier main.css.
+    Ici, il permet
+     -->
+  <ol class="table_of_contents">
+    <li><a href="../1-outils">Outils</a></li>
+    <li><a href="../2-html">HTML</a>
+      <ol>
+        <li><a href="../2-html/01-texte-seul">Texte seul</a></li>
+        <li><a href="../2-html/02-minimum">Structure HTML minimum</a></li>
+        <li><a href="../2-html/03-commentaires">Commentaires HTML</a></li>
+        <li>Permissivité de HTML
+          <!-- Le HTML est permissif. Même si le code HTML est incorrect, le navigateur fera tout pour afficher quelque-chose plutôt que de faire une erreur --></li>
+      </ol>
+    </li>
+    <li><a href="../3-css">CSS</a></li>
+    <li><a href="../4-problemes-communs">Problèmes communs</a></li>
+    <li><a href="../5-pratiques">Pratiques</a></li>
+  </ol>
+</main>
 
-  <footer>
-    <ul>
-      <li>
-        <a href="https://github.com/baldir-fr/web-exemples/blob/main/2-html/index.html" target="_blank">Code source sur
-          GitHub</a>
-      </li>
-      <li> <a href="/">Accueil</a> </li>
-    </ul>
-  </footer>
+<footer>
+  <ul>
+    <li>
+      <a href="https://github.com/baldir-fr/web-exemples/blob/main/2-html/index.html" target="_blank">Code source sur
+        GitHub</a>
+    </li>
+    <li><a href="../">Accueil</a></li>
+  </ul>
+</footer>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
-/* 
+/*
 Table des matières : numérotation automatique.
-Ex. 
+Ex.
 
 1.
   1.1.
@@ -9,15 +9,17 @@ Ex.
   2.1
   2.2
 */
-.table_of_contents, 
+.table_of_contents,
 .table_of_contents ol {
-    counter-reset: ct;
+  counter-reset: ct;
 
 }
+
 .table_of_contents li {
-    list-style-type : none;
+  list-style-type: none;
 }
+
 .table_of_contents li:before {
-    content: counters(ct, ".")". ";
-    counter-increment: ct;
+  content: counters(ct, ".") ". ";
+  counter-increment: ct;
 }
