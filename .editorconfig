@@ -1,0 +1,23 @@
+# Editorconfig :https://editorconfig.org/
+#
+# Ce fichier permet de définir des règles basiques de style.
+#
+# Ces règles fonctionnent dans la plupart des éditeurs de code.
+# Ainsi, quel que soit l'éditeur utilisé,
+# le formatage automatique est respecté dans l'ensemble.
+
+# Dans VsCode : installer le plugin
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
