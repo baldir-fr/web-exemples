@@ -30,23 +30,106 @@
     <li><a href="../4-problemes-communs">Problèmes communs</a></li>
     <li><a href="../5-pratiques">Pratiques</a>
       <ol>
-        <li>Séparation des préoccupations</li>
-        <li>Style de code automatique
+        <li>Méthodologiques
+          <!--          https://www.alsacreations.com/actu/lire/1823-quels-framework-methodologie-css-choisir.html-->
           <ol>
-            <li>Linters</li>
-            <li>Formatteurs</li>
+            <li>Définir des conventions de style de code en équipe
+              <!--              https://www.alsacreations.com/outils/kiwipedia/-->
+              <!--              https://www.alsacreations.com/outils/kiwipedia/guidelines/html.md-->
+            </li>
+            <li>Séparation des préoccupations
+<!--              Paramétrable via variables CSS-->
+            </li>
+            <li>Utiliser les class CSS plutôt que les id pour le style</li>
+            <li>Positionnement : privilégier Grid Layout en priorité, puis flexbox
+<!--              https://www.alsacreations.com/outils/kiwipedia/guidelines/css.md-->
+<!--              https://blog.logrocket.com/css-flexbox-vs-css-grid/-->
+            </li>
+            <li>Réduire la spécificité en CSS</li>
+            <li>Concevoir en "mobile first"
+              <!--              https://github.com/cnumr/best-practices/blob/main/src/content/fiches/fr/RWEB_0006-privilegier-une-approche-mobile-first-a-defaut-un-chargement-adaptatif.mdx-->
+            </li>
+            <li><a href="https://developer.mozilla.org/fr/docs/Glossary/Progressive_Enhancement">Amélioration
+              progressive</a></li>
+            <li>Approches CSS
+              <ol>
+                <li>
+                  <del>Historique</del>
+                </li>
+                <li>Sémantique
+                  <ol>
+                    <li><a href="https://www.csszengarden.com/" title="CSS Zen Garden (nouvelle fenêtre)"
+                           target="_blank"
+                           rel="noopener noreferer">CSS Zen Garden</a></li>
+                  </ol>
+                </li>
+                <li>BEM</li>
+                <li>Atomique
+                  <ol>
+                    <li><a
+                      href="https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/"
+                      title="Challenging CSS Best Practices (nouvelle fenêtre)" target="_parent"
+                      rel="noopener noreferer">Challenging CSS Best Practices</a>, pourquoi la séparation des
+                      préoccupations n'est pas forcément toujours une bonne idée en CSS
+                    </li>
+
+                  </ol>
+                </li>
+                <li>Hybride (en partie sémantique, en partie classes utilitaires)</li>
+              </ol>
+            </li>
+
+            <li>Style de code automatique
+              <ol>
+                <li>Linters</li>
+                <li>Formatteurs</li>
+              </ol>
+            </li>
+
+            <li>Conventions de structuration CSS
+              <ol>
+                <li>BEM</li>
+                <li>OOCSS</li>
+                <li>SMACSS</li>
+              </ol>
+
+            </li>
+            <li>Design System</li>
+
           </ol>
         </li>
-        <li>Conventions de structuration CSS
-          <ol>BEM</ol>
-        </li>
-        <li>Pré-processeurs CSS <!-- https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor -->
+        <li>Techniques / Outils
           <ol>
-            <li>Sass</li>
-            <li>LESS</li>
-            <li>Stylus</li>
+            <li>Générateurs de sites statiques</li>
+            <li></li>
+            <li>Pré-processeurs CSS <!-- https://developer.mozilla.org/en-US/docs/Glossary/CSS_preprocessor -->
+              <ol>
+                <li>Sass</li>
+                <li>LESS</li>
+                <li>Stylus</li>
+              </ol>
+            </li>
+            <li>Frameworks CSS
+              <ol>
+                <li>Bulma</li>
+                <li>Tailwind</li>
+                <li>Bootstrap</li>
+              </ol>
+            </li>
           </ol>
         </li>
+        <li>
+          Ethiques
+          <ol>
+            <li>
+
+            Dark Patterns (ou design trompeur)
+              <!--          https://designersethiques.org/fr/thematiques/design-persuasif/concevoir-sans-dark-patterns-->
+            </li>
+          </ol>
+        </li>
+
+
         <li>Pratiques obsolètes
           <!-- Certaines pratiques sont considérées obsolètes. Si elles sont parfois recommendées dans des anciens blogs, elles sont à proscrire --></li>
       </ol>
