@@ -1,18 +1,82 @@
 <!DOCTYPE html>
+<!--
+    <!DOCTYPE> est la balise de préambule d'un document HTML.
+    Avant l'arrivée d'HTML5, elle était utilisée pour déterminer comment le
+    rendu de la page devait être fait.
+
+    Toujours utiliser <!DOCTYPE html> sauf dans de rares cas.
+    https://developer.mozilla.org/fr/docs/Glossary/Doctype
+  -->
+
+<!--
+    <html> est la balise racine d'un document HTML.
+    https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/html
+
+    Pour l'accessibilité, il est important d'indiquer la langue du document.
+    Par exemple <html lang="fr"> pour le français.
+    https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/html#accessibilit%C3%A9
+  -->
 <html lang="fr">
 
+<!--
+    <head> (ne pas confondre avec <header>).
+    Elle permet d'indiquer des informations additionnelles au contenu du document HTML.
+    https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/head
+  -->
+
 <head>
-    <meta charset='utf-8'>
-    <title>Exemples HTML - Accueil</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <meta name="description" content="Un site démo pour présenter les Github Pages à la classe B1 de Coda Dijon en 2025.">
-    <meta name="author" content="Marc Bouvier">
-    <link rel="icon" type="image/ico" href="https://baldir-fr.github.io/html-exemples/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://baldir-fr.github.io/html-exemples/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://baldir-fr.github.io/html-exemples/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://baldir-fr.github.io/html-exemples/favicon-16x16.png">
+  <!--
+        Les balises <meta> ou "métabalises"
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/meta
+      -->
+  <!--
+        La metabalise <meta charset=""> permet de définir l'encodage de caractères de la page.
+        Si l'encodage du fichier ne correspond pas à celui défini dans le document, certains caratères peuvent mal s'afficher.
+        En règle générale, on utilise l'encodage "utf-8".
+
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/meta#charset
+      -->
+  <meta charset='utf-8'>
+  <!--
+        <meta name="description">
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/meta/name
+      -->
+  <meta name="description" content="Les fondamentaux du Web par des exemples basés sur les standards du Web.">
+  <!--
+        <meta name="viewport"> permet de controler la mise en page sur mobile.
+        https://developer.mozilla.org/fr/docs/Web/HTML/Guides/Viewport_meta_element#un_viewport_de_base
+      -->
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <!--
+        La balise <title> permet de définir le titre de la page dans la barre du navigateur, les onglets.
+        Elle est importante pour les moteurs de recherche car c'est la première chose qui est affichée.
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/title
+      -->
+  <title>Table des matières - Fondamentaux Web</title>
+  <!--
+        La balise <link> permet de récupérer une ressource externe.
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/link
+
+        L'attribut rel="" permet de définir le type de ressource (ex. feuille de style icone)
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Attributes/rel
+      -->
+  <!--
+        <link rel="stylesheet"> permet de télécharger de d'appliquer des styles CSS depuis un fichier externe.
+        https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/link#associer_une_feuille_de_style
+      -->
+  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+  <!--
+        <link rel="icon"> permet de définir l'icône du site dans la barre d'adresse,les favoris et onglets notamment.
+        https://developer.mozilla.org/fr/docs/Glossary/Favicon
+      -->
+  <!-- <link rel="icon" type="image/ico" href="favicon.ico"> -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </head>
+<!--
+  <body> contient le contenu visible du document HTML.
+-->
 
 <body>
   <main>
