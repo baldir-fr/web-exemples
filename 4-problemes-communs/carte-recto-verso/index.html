@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carte recto-verso</title>
+  <meta name="description"
+        content="Carte recto-verso. Une case à cocher permet de contrôler si le recto ou le verso est affiché. N'utilise pas de code javascript.">
+</head>
+<style>
+
+  /* Layout System
+
+  - Harmonic scales
+  - Axioms and related exceptions
+  */
+  :root {
+    /*   modular scale */
+    --ratio: 1.5;
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio));
+    --s-2: calc(var(--s-1) / var(--ratio));
+    --s-1: calc(var(--s0) / var(--ratio));
+    --s0: 1rem;
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s1) * var(--ratio));
+    --s3: calc(var(--s2) * var(--ratio));
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+
+  }
+
+  /* ax_60ch (axiome) : un texte ne devrait pas dépasser 60 caractère. Sinon c'est difficile à lire.*/
+  * {
+    max-inline-size: 60ch;
+  }
+
+  /* Exceptions à la règle ax_60ch. */
+  html, body, div, header, nav, main, footer {
+    max-inline-size: none;
+  }
+
+  /*
+
+  Box
+  Usage :
+
+    <section class="box"></section>
+
+  With thin border
+
+    <section class="box" style="--border-thin:1px"></section>
+
+  */
+
+  .box {
+    /* ↓ Padding set to the first point on the modular scale */
+    padding: var(--s1);
+    /* ↓ Assumes you have a --border-thin var */
+    border: var(--border-thin) solid;
+    /* ↓ Always apply the transparent outline, for high contrast mode */
+    outline: var(--border-thin) transparent;
+    outline-offset: calc(var(--border-thin) * -1);
+    /* ↓ The light and dark color vars */
+    --color-light: #e0efb9;
+    --color-dark: #1c711a;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+  }
+
+  .box * {
+    color: inherit;
+  }
+
+  .box.invert {
+    color: var(--color-light);
+    background-color: var(--color-dark);
+  }
+
+  /*
+    Stack
+
+      Usage :
+
+    <div class="stack">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+    </div>
+
+  With thin border
+
+    <div class="stack" style="--space:2rem;">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+    </div>
+
+*/
+
+  .stack {
+    /* ↓ The flex context */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .stack > * {
+    /* ↓ Any extant vertical margins are removed */
+    margin-block: 0;
+  }
+
+  .stack > * + * {
+    /* ↓ Top margin is only applied to successive elements */
+    margin-block-start: var(--space, 1.5rem);
+  }
+
+
+  /* Grid
+
+
+  */
+
+  .grid {
+    display: grid;
+    grid-gap: 1rem;
+    --minimum: 20ch;
+  }
+
+  @supports (width: min(var(--minimum), 100%)) {
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(var(--minimum), 100%),
+      1fr));
+    }
+  }
+
+  /* ============= Fin du Layout System ============= */
+
+  /* ================== Composants ================== */
+
+  /* Flash card
+
+  Usage:
+    <article class="box stack flash_card">
+      <header>
+        <label for="id_fiche">Sujet de la fiche</label>
+        <input id="id_fiche" type="checkbox" class="flash_card_toggle">
+      </header>
+      <section class="verso">
+        <p> Réponse de la fiche au verso </p>>
+      </section>
+      <footer>
+        <p>Informations complémentaires</p>
+      ></footer>
+    </article>
+
+  */
+  .flash_card {
+    --color-light: #fffcd5;
+    --color-dark: #8e5500;
+
+    width: 63mm;
+    height: 88mm;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .flash_card header {
+    width: 100%;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+  }
+
+  .flash_card footer {
+    width: 100%;
+    font-size: 0.875rem;
+  }
+
+  .flash_card .verso {
+    width: 100%;
+    display: none;
+    overflow: scroll;
+  }
+
+  /*
+    Quand la case à cocher de la carte est cochée:
+    - le contenu du verso est affiché
+    - la couleur de la carte change
+   */
+  .flash_card:has(.flash_card_toggle:checked) {
+    --color-light: #b1ffb8;
+    --color-dark: #0c5011;
+
+    .verso {
+      display: block;
+    }
+  }
+
+  /* ============ Branding et esthétique ============ */
+
+</style>
+<body>
+
+<div class="grid" style="--minimum: 76mm">
+
+  <article class="box stack flash_card" aria-labelledby="card_001_label">
+    <header>
+      <label id="card_001_label" for="card_001">
+        Quelle est la couleur du cheval blanc d'Henry IV ?</label>
+      <input id="card_001" type="checkbox" class="flash_card_toggle">
+    </header>
+    <section class="verso">
+      <p>Blanc</p>
+    </section>
+    <footer>bas de la carte</footer>
+  </article>
+  <article class="box stack flash_card" aria-labelledby="card_002_label">
+    <header>
+      <label id="card_002_label"
+             for="card_002">
+        Carte 2</label>
+      <input id="card_002" type="checkbox" class="flash_card_toggle">
+    </header>
+    <section class="verso">
+      <p>Blanc</p>
+    </section>
+    <footer>bas de la carte</footer>
+  </article>
+  <article class="box stack flash_card" aria-labelledby="card_003_label">
+    <header>
+      <label id="card_003_label" for="card_003">
+        Carte 3</label>
+      <input id="card_003" type="checkbox" class="flash_card_toggle">
+    </header>
+    <section class="verso">
+      <p>Foobar</p>
+    </section>
+    <footer>bas de la carte</footer>
+  </article>
+  <article class="box stack flash_card" aria-labelledby="card_004_label">
+    <header>
+      <label id="card_004_label" for="card_004">
+        Carte 4</label>
+      <input id="card_004" type="checkbox" class="flash_card_toggle">
+    </header>
+    <section class="verso">
+      <p>Blanc</p>
+    </section>
+    <footer>bas de la carte</footer>
+  </article>
+</div>
+
+</body>
+</html>
