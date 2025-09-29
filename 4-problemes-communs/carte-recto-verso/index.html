@@ -9,26 +9,8 @@
 </head>
 <style>
 
-  /* Layout System
-
-  - Harmonic scales
-  - Axioms and related exceptions
-  */
-  :root {
-    /*   modular scale */
-    --ratio: 1.5;
-    --s-5: calc(var(--s-4) / var(--ratio));
-    --s-4: calc(var(--s-3) / var(--ratio));
-    --s-3: calc(var(--s-2) / var(--ratio));
-    --s-2: calc(var(--s-1) / var(--ratio));
-    --s-1: calc(var(--s0) / var(--ratio));
-    --s0: 1rem;
-    --s1: calc(var(--s0) * var(--ratio));
-    --s2: calc(var(--s1) * var(--ratio));
-    --s3: calc(var(--s2) * var(--ratio));
-    --s4: calc(var(--s3) * var(--ratio));
-    --s5: calc(var(--s4) * var(--ratio));
-
+  * {
+    box-sizing: border-box;
   }
 
   /* ax_60ch (axiome) : un texte ne devrait pas dépasser 60 caractère. Sinon c'est difficile à lire.*/
@@ -41,103 +23,19 @@
     max-inline-size: none;
   }
 
-  /*
-
-  Box
-  Usage :
-
-    <section class="box"></section>
-
-  With thin border
-
-    <section class="box" style="--border-thin:1px"></section>
-
-  */
-
-  .box {
-    /* ↓ Padding set to the first point on the modular scale */
-    padding: var(--s1);
-    /* ↓ Assumes you have a --border-thin var */
-    border: var(--border-thin) solid;
-    /* ↓ Always apply the transparent outline, for high contrast mode */
-    outline: var(--border-thin) transparent;
-    outline-offset: calc(var(--border-thin) * -1);
-    /* ↓ The light and dark color vars */
-    --color-light: #e0efb9;
-    --color-dark: #1c711a;
-    color: var(--color-dark);
-    background-color: var(--color-light);
-  }
-
-  .box * {
-    color: inherit;
-  }
-
-  .box.invert {
-    color: var(--color-light);
-    background-color: var(--color-dark);
-  }
-
-  /*
-    Stack
-
-      Usage :
-
-    <div class="stack">
-      <div>A</div>
-      <div>B</div>
-      <div>C</div>
-    </div>
-
-  With thin border
-
-    <div class="stack" style="--space:2rem;">
-      <div>A</div>
-      <div>B</div>
-      <div>C</div>
-    </div>
-
-*/
-
-  .stack {
-    /* ↓ The flex context */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .stack > * {
-    /* ↓ Any extant vertical margins are removed */
-    margin-block: 0;
-  }
-
-  .stack > * + * {
-    /* ↓ Top margin is only applied to successive elements */
-    margin-block-start: var(--space, 1.5rem);
-  }
-
-
-  /* Grid
-
-
-  */
-
-  .grid {
+  .flash_cards_grid{
     display: grid;
     grid-gap: 1rem;
-    --minimum: 20ch;
+    --minimum: 76mm;
   }
 
+
   @supports (width: min(var(--minimum), 100%)) {
-    .grid {
+    .flash_cards_grid {
       grid-template-columns: repeat(auto-fit, minmax(min(var(--minimum), 100%),
       1fr));
     }
   }
-
-  /* ============= Fin du Layout System ============= */
-
-  /* ================== Composants ================== */
 
   /* Flash card
 
@@ -159,7 +57,10 @@
   .flash_card {
     --color-light: #fffcd5;
     --color-dark: #8e5500;
+    --border-thin: 1px;
 
+    color: var(--color-dark);
+    background-color: var(--color-light);
     width: 63mm;
     height: 88mm;
     border-radius: 1rem;
@@ -167,6 +68,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    /* ↓ Padding set to the first point on the modular scale */
+    padding: .75rem;
+    /* ↓ Assumes you have a --border-thin var */
+    border: var(--border-thin) solid;
+    /* ↓ Always apply the transparent outline, for high contrast mode */
+    outline: var(--border-thin) transparent;
+    outline-offset: calc(var(--border-thin) * -1);
   }
 
   .flash_card header {
@@ -208,7 +117,7 @@
 </style>
 <body>
 
-<div class="grid" style="--minimum: 76mm">
+<div class="flash_cards_grid" style="--minimum: 68mm">
 
   <article class="box stack flash_card" aria-labelledby="card_001_label">
     <header>
